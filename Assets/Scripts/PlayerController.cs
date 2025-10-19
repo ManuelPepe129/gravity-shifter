@@ -11,11 +11,13 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody _rigidbody;
     private InputSystem_Actions _playerControls;
+    private Camera _camera;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _playerControls = new InputSystem_Actions();
+        _camera = Camera.main;
     }
 
     private void Start()
@@ -28,9 +30,8 @@ public class PlayerController : MonoBehaviour
     private void RotateGravity(float rotationValue)
     {
         float angle = 90f * rotationValue;
-        // TODO: Update gravity
-        Debug.Log("Rotate Gravity by " + angle);
-        throw new NotImplementedException();
+        Physics.gravity = Quaternion.Euler(0f, 0f, angle) * Physics.gravity;
+        _camera.transform.Rotate(0, 0, angle);
     }
 
     private void FixedUpdate()
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
         if (!_isJumping)
         {
             float movementAmount = _playerControls.Player.Move.ReadValue<float>();
-            _movement = Vector3.right * movementAmount;
+            _movement = transform.forward * movementAmount;
         }
     }
 
@@ -72,9 +73,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isJumping)
         {
-            throw new NotImplementedException();
+            _rigidbody.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
+            // throw new NotImplementedException();
         }
     }
-    
-    
 }

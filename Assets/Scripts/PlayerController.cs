@@ -113,12 +113,14 @@ public class PlayerController : MonoBehaviour
         {
             float movementAmount = _playerControls.Player.Move.ReadValue<float>();
 
+            // Change player direction
             if (!_facingRight && movementAmount > 0 || _facingRight && movementAmount < 0)
             {
                 _rigidbody.rotation *= new Quaternion(0, movementAmount, 0, 0);
                 _facingRight = !_facingRight;
             }
 
+            // Assign movement direction
             _movement = transform.forward * Mathf.Abs(movementAmount);
         }
     }

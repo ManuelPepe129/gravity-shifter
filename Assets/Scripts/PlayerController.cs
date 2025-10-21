@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
         // Callbacks setup
         _playerControls.Player.Jump.performed += _ => Jump();
         _playerControls.Player.Gravity.performed += context => RotateGravity(context.ReadValue<float>());
+        _isJumping = false;
     }
 
     /// <summary>

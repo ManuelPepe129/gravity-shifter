@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
     {
         float angle = 90f * rotationValue;
         Physics.gravity = Quaternion.Euler(0f, 0f, angle) * Physics.gravity;
+        var cameraAnimation = _camera.GetComponent<Animation>();
+        cameraAnimation.Play();
         StartCoroutine(PlayerCameraRotation(angle));
     }
 

@@ -1,13 +1,4 @@
-using System;
 using UnityEngine;
-
-/**
- * 
-tenere traccia se la leva è stata utilizzata o meno
-
-  - rendere il livello “terminabile”
-
-*/
 
 /// <summary>
 /// To manage the active scene
@@ -40,6 +31,12 @@ public class SceneManager : MonoBehaviour
             // TODO: UI "congrats: you collected all the candies!"
             Debug.Log("Congrats: you collected all the candies!");
         }
+    }
+
+    public void OnLeverActivated()
+    {
+        // TODO: suono + particellare intorno al portale??
+        exit.GetComponent<Collider>().enabled = true;
     }
 
     public void OnPlayerDeath()

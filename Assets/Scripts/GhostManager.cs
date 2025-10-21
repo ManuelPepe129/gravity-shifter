@@ -25,13 +25,13 @@ public class GhostManager : MonoBehaviour
         if (sceneManager != null && other.gameObject.CompareTag("Player"))
         {
             ghost.SetActive(true);
-            StartCoroutine(MoveEnemy());
+            StartCoroutine(MoveEnemy(startingPoint, endPoint));
         }
     }
 
-    private IEnumerator MoveEnemy()
+    private IEnumerator MoveEnemy(Transform from, Transform to)
     {
-        float pathLength = (startingPoint.position - endPoint.position).magnitude;
+        float pathLength = (from.position - to.position).magnitude;
         float movementDuration = pathLength / 2;
         float elapsedTime = 0f;
         float alpha = 0f;
@@ -41,7 +41,7 @@ public class GhostManager : MonoBehaviour
 
         while (elapsedTime < movementDuration)
         {
-            Vector3 currentPosition = Vector3.Lerp(startingPoint.position, endPoint.position, alpha);
+            Vector3 currentPosition = Vector3.Lerp(from.position, to.position, alpha);
             ghost.transform.position = currentPosition;
             alpha += Time.deltaTime / movementDuration;
             elapsedTime += Time.deltaTime;
@@ -49,7 +49,12 @@ public class GhostManager : MonoBehaviour
         }
 
         // Final destination + switch rotation
-        ghost.transform.position = endPoint.position;
+        ghost.transform.position = to.position;
         ghost.transform.Rotate(new Vector3(0, 1, 0), 180);
+
+        // Invert from and to
+        from = (from == startingPoint) ? endPoint : startingPoint;
+        to = (to == startingPoint) ? endPoint : startingPoint;
+        StartCoroutine(MoveEnemy(from, to));
     }
 }

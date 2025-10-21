@@ -258,6 +258,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghost: {fileID: 1871951037}
+  startingPoint: {fileID: 441360818}
+  endPoint: {fileID: 1917734471}
 --- !u!65 &190744388
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,9 +1,14 @@
+using System.Collections;
 using UnityEngine;
 
 public class GhostManager : MonoBehaviour
 {
-    SceneManager sceneManager;
     [SerializeField] GameObject ghost;
+    [SerializeField] Transform startingPoint;
+    [SerializeField] Transform endPoint;
+
+    SceneManager sceneManager;
+    
 
     private void Awake()
     {
@@ -20,6 +25,31 @@ public class GhostManager : MonoBehaviour
         if (sceneManager != null && other.gameObject.CompareTag("Player"))
         {
             ghost.SetActive(true);
+            StartCoroutine(MoveEnemy());
         }
+    }
+
+    private IEnumerator MoveEnemy()
+    {
+        float pathLength = (startingPoint.position - endPoint.position).magnitude;
+        float movementDuration = pathLength / 2;
+        float elapsedTime = 0f;
+        float alpha = 0f;
+
+        Debug.Log(pathLength);
+        Debug.Log(movementDuration);
+
+        while (elapsedTime < movementDuration)
+        {
+            Vector3 currentPosition = Vector3.Lerp(startingPoint.position, endPoint.position, alpha);
+            ghost.transform.position = currentPosition;
+            alpha += Time.deltaTime / movementDuration;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Final destination + switch rotation
+        ghost.transform.position = endPoint.position;
+        ghost.transform.Rotate(new Vector3(0, 1, 0), 180);
     }
 }

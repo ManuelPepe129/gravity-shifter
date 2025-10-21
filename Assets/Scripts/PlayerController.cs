@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     private InputSystem_Actions _playerControls;
     private Camera _camera;
 
+    private bool _facingRight = true;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -25,13 +27,70 @@ public class PlayerController : MonoBehaviour
         // Callbacks setup
         _playerControls.Player.Jump.performed += _ => Jump();
         _playerControls.Player.Gravity.performed += context => RotateGravity(context.ReadValue<float>());
+        _isJumping = false;
     }
 
+    /// <summary>
+    /// Change of gravity of the entire scene
+    /// </summary>
+    /// <param name="rotationValue"></param>
     private void RotateGravity(float rotationValue)
     {
         float angle = 90f * rotationValue;
         Physics.gravity = Quaternion.Euler(0f, 0f, angle) * Physics.gravity;
-        _camera.transform.Rotate(0, 0, angle);
+        StartCoroutine(PlayerCameraRotation(angle));
+    }
+
+    /// <summary>
+    /// Camera and player rotation according to gravity
+    /// </summary>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    private IEnumerator PlayerCameraRotation(float angle)
+    {
+        // The player can't move while rotating the camera
+        _rigidbody.useGravity = false;
+        _rigidbody.linearVelocity = Vector3.zero;
+        _playerControls.Disable();
+
+        float duration = 2.0f;
+        float alpha = 0.0f;
+        Quaternion startPlayerRotation = _rigidbody.rotation;
+        Quaternion startCameraRotation = _camera.transform.rotation;
+        while (alpha < 1.0f)
+        {
+            float currentAngle = Mathf.LerpAngle(0, angle, alpha);
+            _rigidbody.rotation = Quaternion.Euler(0, 0, currentAngle) * startPlayerRotation;
+            _camera.transform.rotation = Quaternion.Euler(0, 0, currentAngle) * startCameraRotation;
+            alpha += Time.deltaTime / duration;
+            yield return null;
+        }
+
+        // Final rotations
+        _rigidbody.rotation = Quaternion.Euler(0, 0, angle) * startPlayerRotation;
+        _camera.transform.rotation = Quaternion.Euler(0, 0, angle) * startCameraRotation;
+
+        _rigidbody.useGravity = true;
+    }
+
+    /// <summary>
+    /// Management of collision with floor: the player controls
+    /// are not enabled until the player touch the ground
+    /// N.b. Do not consider collision during the jump
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnCollisionEnter(Collision other)
+    {
+        var collisionDirection = other.impulse.normalized;
+        float dot = -Vector3.Dot(Physics.gravity.normalized, collisionDirection);
+
+        // If the gravity and the movement vector are parallels
+        // (player going down and touching the ground): enable
+        if (dot > 0.5f)
+        {
+            _playerControls.Enable();
+            _isJumping = false;
+        }
     }
 
     private void FixedUpdate()
@@ -40,7 +99,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Move()
-    {
+    {        
         _rigidbody.MovePosition(_rigidbody.position + _movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
@@ -54,10 +113,18 @@ public class PlayerController : MonoBehaviour
         if (!_isJumping)
         {
             float movementAmount = _playerControls.Player.Move.ReadValue<float>();
-            _movement = transform.forward * movementAmount;
+
+            // Change player direction
+            if (!_facingRight && movementAmount > 0 || _facingRight && movementAmount < 0)
+            {
+                _rigidbody.rotation *= new Quaternion(0, movementAmount, 0, 0);
+                _facingRight = !_facingRight;
+            }
+
+            // Assign movement direction
+            _movement = transform.forward * Mathf.Abs(movementAmount);
         }
     }
-
 
     private void OnEnable()
     {
@@ -74,7 +141,7 @@ public class PlayerController : MonoBehaviour
         if (!_isJumping)
         {
             _rigidbody.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
-            // throw new NotImplementedException();
+            _isJumping = true;
         }
     }
 }

@@ -1,19 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
-public class GhostManager : MonoBehaviour
+public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] GameObject ghost;
     [SerializeField] Transform startingPoint;
     [SerializeField] Transform endPoint;
-
-    SceneManager sceneManager;
-    
-
-    private void Awake()
-    {
-        sceneManager = FindAnyObjectByType<SceneManager>();
-    }
+    [SerializeField] float speedMultiplier = 1.0f;
 
     /// <summary>
     /// When the player collides with the trigger
@@ -22,7 +15,7 @@ public class GhostManager : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        if (sceneManager != null && other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             ghost.SetActive(true);
             StartCoroutine(MoveEnemy(startingPoint, endPoint));
@@ -32,12 +25,9 @@ public class GhostManager : MonoBehaviour
     private IEnumerator MoveEnemy(Transform from, Transform to)
     {
         float pathLength = (from.position - to.position).magnitude;
-        float movementDuration = pathLength / 2;
+        float movementDuration = (pathLength / 2.0f) / speedMultiplier;
         float elapsedTime = 0f;
         float alpha = 0f;
-
-        Debug.Log(pathLength);
-        Debug.Log(movementDuration);
 
         while (elapsedTime < movementDuration)
         {

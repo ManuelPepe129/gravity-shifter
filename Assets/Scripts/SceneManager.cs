@@ -12,6 +12,11 @@ public class SceneManager : MonoBehaviour
 
     GameObject exit;
 
+    private void Awake()
+    {
+        session = new GameSession();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

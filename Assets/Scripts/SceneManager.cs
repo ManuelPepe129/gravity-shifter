@@ -40,6 +40,7 @@ public class SceneManager : MonoBehaviour
 
     public void OnLeverActivated()
     {
+        // TODO: change material to door: from wood to Ire's shader
         // TODO: suono + particellare intorno al portale??
         exit.GetComponent<Collider>().enabled = true;
     }

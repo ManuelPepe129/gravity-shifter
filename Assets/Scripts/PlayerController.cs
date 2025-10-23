@@ -35,7 +35,8 @@ public class PlayerController : MonoBehaviour
     /// <param name="rotationValue"></param>
     private void RotateGravity(float rotationValue)
     {
-        float angle = 90f * rotationValue;
+        float angle = rotationValue > 0 ? 90f : -90f;
+        //float angle = 90f * rotationValue;
         Physics.gravity = Quaternion.Euler(0f, 0f, angle) * Physics.gravity;
         StartCoroutine(PlayerCameraRotation(angle));
     }

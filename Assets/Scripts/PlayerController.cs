@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="other"></param>
     private void OnCollisionEnter(Collision other)
     {
-        var collisionDirection = other.impulse.normalized;
+        var collisionDirection = other.contacts[0].normal;
         float dot = -Vector3.Dot(Physics.gravity.normalized, collisionDirection);
 
         // If the gravity and the movement vector are parallels

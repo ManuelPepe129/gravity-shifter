@@ -282,6 +282,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (14)
@@ -405,6 +409,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1791221299}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (4)
@@ -472,6 +480,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (10)
@@ -598,6 +610,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (22)
@@ -694,7 +710,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4155028503903420689, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8162763069766887076, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1131,6 +1147,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (23)
@@ -1192,6 +1212,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (5)
@@ -1501,7 +1525,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4155028503903420689, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8162763069766887076, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1570,6 +1594,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (18)
@@ -1829,7 +1857,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4155028503903420689, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8162763069766887076, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2158,6 +2186,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1791221299}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (3)
@@ -2479,6 +2511,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (13)
@@ -2579,6 +2615,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (20)
@@ -2934,6 +2974,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (11)
@@ -3161,7 +3205,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4155028503903420689, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8162763069766887076, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3287,6 +3331,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (8)
@@ -3466,6 +3514,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (5)
@@ -3651,7 +3703,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4155028503903420689, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8162763069766887076, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4036,7 +4088,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4155028503903420689, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8162763069766887076, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4983,6 +5035,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (6)
@@ -5044,6 +5100,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (15)
@@ -5246,6 +5306,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (7)
@@ -5534,6 +5598,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1791221299}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (1)
@@ -5839,7 +5907,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4155028503903420689, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8162763069766887076, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5898,6 +5966,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (19)
@@ -6292,6 +6364,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (17)
@@ -6463,6 +6539,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (16)
@@ -6659,6 +6739,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6679745629056083303, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
   m_PrefabInstance: {fileID: 251150509}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1948919115
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 916033047320450271, guid: 682d6601ee79d754eb6b977439443df3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.645434
+      objectReference: {fileID: 0}
+    - target: {fileID: 916033047320450271, guid: 682d6601ee79d754eb6b977439443df3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2640295
+      objectReference: {fileID: 0}
+    - target: {fileID: 916033047320450271, guid: 682d6601ee79d754eb6b977439443df3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916033047320450271, guid: 682d6601ee79d754eb6b977439443df3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 916033047320450271, guid: 682d6601ee79d754eb6b977439443df3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916033047320450271, guid: 682d6601ee79d754eb6b977439443df3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 916033047320450271, guid: 682d6601ee79d754eb6b977439443df3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916033047320450271, guid: 682d6601ee79d754eb6b977439443df3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 916033047320450271, guid: 682d6601ee79d754eb6b977439443df3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 916033047320450271, guid: 682d6601ee79d754eb6b977439443df3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448170624431136798, guid: 682d6601ee79d754eb6b977439443df3, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 682d6601ee79d754eb6b977439443df3, type: 3}
 --- !u!1001 &1949246496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7187,6 +7324,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1791221299}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (2)
@@ -7306,6 +7447,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (12)
@@ -7375,6 +7520,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1070019589}
     m_Modifications:
+    - target: {fileID: 2620653268150920750, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6339073687616716765, guid: 1fda16f3680bf4e4ab920eb125f02e16, type: 3}
       propertyPath: m_Name
       value: Ground block organic (21)
@@ -7576,7 +7725,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4155028503903420689, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8162763069766887076, guid: e915118c78913594faf4b4a6bba68e1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7650,3 +7799,4 @@ SceneRoots:
   - {fileID: 1443836784}
   - {fileID: 628129954}
   - {fileID: 1301129287}
+  - {fileID: 1948919115}

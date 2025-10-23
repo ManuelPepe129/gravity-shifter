@@ -1,7 +1,11 @@
+using System.Collections;
+using System.Net;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class CollectableManager : MonoBehaviour
 {
+    [SerializeField] ParticleSystem collectedEffect;
     SceneManager sceneManager;
 
     private void Awake()
@@ -13,8 +17,17 @@ public class CollectableManager : MonoBehaviour
     {
         if (sceneManager != null && other.gameObject.CompareTag("Player"))
         {
-            sceneManager.OnCandyCollected();
-            Destroy(gameObject);
+            StartCoroutine(TriggerSequence());
         }
+    }
+
+    private IEnumerator TriggerSequence()
+    {
+        collectedEffect.Play();
+        sceneManager.OnCandyCollected();
+
+        yield return new WaitForSeconds(0.5f);
+
+        Destroy(gameObject);
     }
 }

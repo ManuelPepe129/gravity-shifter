@@ -47,6 +47,7 @@ public class SceneManager : MonoBehaviour
 
     public void OnPlayerDeath()
     {
+        Physics.gravity = Vector3.down;
         session.OnPlayerDeath();
     }
 }

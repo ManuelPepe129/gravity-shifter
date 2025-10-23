@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2.0f;
     [SerializeField] private float jumpSpeed = 10.0f;
+    [SerializeField] private bool _facingRight = false;
 
     private bool _isJumping = false;
     private Vector3 _movement = Vector3.zero;
@@ -12,8 +13,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidbody;
     private InputSystem_Actions _playerControls;
     private Camera _camera;
-
-    private bool _facingRight = true;
 
     private void Awake()
     {
@@ -81,7 +80,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="other"></param>
     private void OnCollisionEnter(Collision other)
     {
-        var collisionDirection = other.impulse.normalized;
+        var collisionDirection = other.contacts[0].normal;
         float dot = -Vector3.Dot(Physics.gravity.normalized, collisionDirection);
 
         // If the gravity and the movement vector are parallels

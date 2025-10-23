@@ -53,22 +53,25 @@ public class PlayerController : MonoBehaviour
         _rigidbody.linearVelocity = Vector3.zero;
         _playerControls.Disable();
 
+        _camera.GetComponent<Animator>().Play("Camera Gravity Shift");
+
+        //yield return new WaitForSeconds(.2f);
         float duration = 2.0f;
         float alpha = 0.0f;
         Quaternion startPlayerRotation = _rigidbody.rotation;
-        Quaternion startCameraRotation = _camera.transform.rotation;
+        //Quaternion startCameraRotation = _camera.transform.rotation;
         while (alpha < 1.0f)
         {
             float currentAngle = Mathf.LerpAngle(0, angle, alpha);
             _rigidbody.rotation = Quaternion.Euler(0, 0, currentAngle) * startPlayerRotation;
-            _camera.transform.rotation = Quaternion.Euler(0, 0, currentAngle) * startCameraRotation;
+            //_camera.transform.rotation = Quaternion.Euler(0, 0, currentAngle) * startCameraRotation;
             alpha += Time.deltaTime / duration;
             yield return null;
         }
 
         // Final rotations
         _rigidbody.rotation = Quaternion.Euler(0, 0, angle) * startPlayerRotation;
-        _camera.transform.rotation = Quaternion.Euler(0, 0, angle) * startCameraRotation;
+        //_camera.transform.rotation = Quaternion.Euler(0, 0, angle) * startCameraRotation;
 
         _rigidbody.useGravity = true;
     }

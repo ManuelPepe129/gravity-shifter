@@ -7,14 +7,22 @@ public class PumpkinParticle : MonoBehaviour
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (animator != null)
         {
-            
+            animator.SetBool("Squash", true);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (animator != null)
+        {
+            animator.SetBool("Squash", false);
         }
     }
 

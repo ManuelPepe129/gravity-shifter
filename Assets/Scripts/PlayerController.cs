@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         _camera.GetComponent<Animator>().Play("Camera Gravity Shift");
 
         //yield return new WaitForSeconds(.2f);
-        float duration = 2.0f;
+        float duration = 1.5f;
         float alpha = 0.0f;
         Quaternion startPlayerRotation = _rigidbody.rotation;
         //Quaternion startCameraRotation = _camera.transform.rotation;

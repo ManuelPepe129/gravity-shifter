@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9142825511363770291}
+  - {fileID: 3272302615019277321}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &3572314497955747835
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9b4806d47847a41855ffc10179f71a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectedEffect: {fileID: 8814891260005217427}
 --- !u!136 &6223993435044561222
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -185,4 +187,79 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8265655528887646296, guid: de123305a39a7984695113240dc55926, type: 3}
   m_PrefabInstance: {fileID: 888430364624687083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6907409178836939857
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5070386815915099868}
+    m_Modifications:
+    - target: {fileID: 2704628080581230786, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2704628080581230786, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265655528887646296, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265655528887646296, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265655528887646296, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265655528887646296, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265655528887646296, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265655528887646296, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265655528887646296, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265655528887646296, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265655528887646296, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265655528887646296, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8521880028327575553, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+      propertyPath: m_Name
+      value: CandyExplosion
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+--- !u!4 &3272302615019277321 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8265655528887646296, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+  m_PrefabInstance: {fileID: 6907409178836939857}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8814891260005217427 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2704628080581230786, guid: 3294a38681ad5714ca579f8594e5664a, type: 3}
+  m_PrefabInstance: {fileID: 6907409178836939857}
   m_PrefabAsset: {fileID: 0}

@@ -5,12 +5,19 @@ using UnityEngine;
 /// </summary>
 public class SceneManager : MonoBehaviour
 {
+    [SerializeField] Collider exitCollider;
+
     public GameSession session;
 
     private int totalCandies;
     private int collectedCandies = 0;
 
     GameObject exit;
+
+    private void Awake()
+    {
+        session = new GameSession();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,14 +40,19 @@ public class SceneManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Activates portal collider to end game
+    /// and open the portal
+    /// </summary>
     public void OnLeverActivated()
     {
-        // TODO: suono + particellare intorno al portale??
-        exit.GetComponent<Collider>().enabled = true;
+        exitCollider.enabled = true;
+        exit.SetActive(false);
     }
 
     public void OnPlayerDeath()
     {
+        Physics.gravity = Vector3.down;
         session.OnPlayerDeath();
     }
 }

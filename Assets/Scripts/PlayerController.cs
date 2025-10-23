@@ -1,11 +1,11 @@
 using System.Collections;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2.0f;
     [SerializeField] private float jumpSpeed = 10.0f;
+    [SerializeField] private bool _facingRight = false;
 
     private bool _isJumping = false;
     private Vector3 _movement = Vector3.zero;
@@ -14,18 +14,11 @@ public class PlayerController : MonoBehaviour
     private InputSystem_Actions _playerControls;
     private Camera _camera;
 
-    private bool _facingRight = true;
-    
-    private Animator _animator;
-    private Animator _cameraAnimator;
-
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _playerControls = new InputSystem_Actions();
         _camera = Camera.main;
-        _cameraAnimator = _camera?.GetComponent<Animator>();
-        _animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -44,8 +37,6 @@ public class PlayerController : MonoBehaviour
     {
         float angle = 90f * rotationValue;
         Physics.gravity = Quaternion.Euler(0f, 0f, angle) * Physics.gravity;
-        _cameraAnimator?.Play($"Camera Gravity Shift");
-        _animator.Play($"Player Gravity Shift");
         StartCoroutine(PlayerCameraRotation(angle));
     }
 
@@ -63,12 +54,20 @@ public class PlayerController : MonoBehaviour
 
         float duration = 2.0f;
         float alpha = 0.0f;
+        Quaternion startPlayerRotation = _rigidbody.rotation;
+        Quaternion startCameraRotation = _camera.transform.rotation;
         while (alpha < 1.0f)
         {
+            float currentAngle = Mathf.LerpAngle(0, angle, alpha);
+            _rigidbody.rotation = Quaternion.Euler(0, 0, currentAngle) * startPlayerRotation;
+            _camera.transform.rotation = Quaternion.Euler(0, 0, currentAngle) * startCameraRotation;
             alpha += Time.deltaTime / duration;
             yield return null;
         }
 
+        // Final rotations
+        _rigidbody.rotation = Quaternion.Euler(0, 0, angle) * startPlayerRotation;
+        _camera.transform.rotation = Quaternion.Euler(0, 0, angle) * startCameraRotation;
 
         _rigidbody.useGravity = true;
     }
@@ -81,7 +80,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="other"></param>
     private void OnCollisionEnter(Collision other)
     {
-        var collisionDirection = other.impulse.normalized;
+        var collisionDirection = other.contacts[0].normal;
         float dot = -Vector3.Dot(Physics.gravity.normalized, collisionDirection);
 
         // If the gravity and the movement vector are parallels

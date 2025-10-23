@@ -597,6 +597,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spooky Tree_ G (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7401966110332575777, guid: f9fb04fa0b21f144abc895022dac3dea, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1038,7 +1042,7 @@ GameObject:
   - component: {fileID: 268787080}
   - component: {fileID: 268787079}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1128,9 +1132,9 @@ Transform:
   m_GameObject: {fileID: 268787078}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -18.9, y: 20.6, z: 2.4}
-  m_LocalScale: {x: 5.98, y: 4.203086, z: 4.203086}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: -20.3, y: 20.6, z: 2.4}
+  m_LocalScale: {x: 9.8455715, y: 4.203086, z: 4.7894163}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
@@ -3923,6 +3927,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spooky Tree_ A (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7210933181870480209, guid: 7a8589994318cfa4ba3f5fb998d7ac8e, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4062,6 +4070,10 @@ PrefabInstance:
     - target: {fileID: 5330539320515978966, guid: f9fb04fa0b21f144abc895022dac3dea, type: 3}
       propertyPath: m_Name
       value: Spooky Tree_ G (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401966110332575777, guid: f9fb04fa0b21f144abc895022dac3dea, type: 3}
+      propertyPath: m_Convex
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4226,7 +4238,7 @@ Transform:
   m_GameObject: {fileID: 1236325085}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.1, y: 19.9, z: -39.8}
+  m_LocalPosition: {x: -20.1, y: 20.71, z: -45.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4969,6 +4981,10 @@ PrefabInstance:
     - target: {fileID: 6440774818338459094, guid: 7a8589994318cfa4ba3f5fb998d7ac8e, type: 3}
       propertyPath: m_Name
       value: Spooky Tree_ A
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210933181870480209, guid: 7a8589994318cfa4ba3f5fb998d7ac8e, type: 3}
+      propertyPath: m_Convex
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6669,6 +6685,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 834933586}
     m_Modifications:
+    - target: {fileID: -4859228547245097385, guid: edb0c67f316104c448c064cc015e207c, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2715411153055925695, guid: edb0c67f316104c448c064cc015e207c, type: 3}
       propertyPath: m_Name
       value: Spooky Tree_ C (1)
@@ -6804,6 +6824,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 834933586}
     m_Modifications:
+    - target: {fileID: -4859228547245097385, guid: edb0c67f316104c448c064cc015e207c, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2715411153055925695, guid: edb0c67f316104c448c064cc015e207c, type: 3}
       propertyPath: m_Name
       value: Spooky Tree_ C

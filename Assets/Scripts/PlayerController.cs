@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Move()
-    {        
+    {
         _rigidbody.MovePosition(_rigidbody.position + _movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
@@ -109,8 +109,8 @@ public class PlayerController : MonoBehaviour
 
     private void GetPlayerInput()
     {
-        if (!_isJumping)
-        {
+        //if (!_isJumping)
+        //{
             float movementAmount = _playerControls.Player.Move.ReadValue<float>();
 
             // Change player direction
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
 
             // Assign movement direction
             _movement = transform.forward * Mathf.Abs(movementAmount);
-        }
+        //}
     }
 
     private void OnEnable()

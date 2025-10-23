@@ -16,8 +16,8 @@ public class GameSession
         // TODO: UI "You lost"
         Debug.Log("You lost!");
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene(
-            UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(
+        //    UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 
     // TODO: reset game at key pression

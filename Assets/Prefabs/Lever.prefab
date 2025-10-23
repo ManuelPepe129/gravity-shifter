@@ -81,6 +81,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 616b7fe7cdfef004488432b919b6d83a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7068753485094018313}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 616b7fe7cdfef004488432b919b6d83a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 57612810409099158}
     - targetCorrespondingSourceObject: {fileID: -3133498875991405556, guid: 616b7fe7cdfef004488432b919b6d83a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7979133718151920219}
@@ -108,7 +111,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -153,6 +156,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c518d3ac19b9a9458ee92167e88a761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 863744450385519192}
+--- !u!54 &57612810409099158
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5102768307098423040}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &5592199778005505466 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 616b7fe7cdfef004488432b919b6d83a, type: 3}
@@ -178,7 +209,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -254,5 +285,10 @@ PrefabInstance:
 --- !u!4 &566686690713075085 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8144037599045065202, guid: 7bb62fb6b2851bb488825c0ae77df7db, type: 3}
+  m_PrefabInstance: {fileID: 8563640350477214847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &863744450385519192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9017484664307500583, guid: 7bb62fb6b2851bb488825c0ae77df7db, type: 3}
   m_PrefabInstance: {fileID: 8563640350477214847}
   m_PrefabAsset: {fileID: 0}

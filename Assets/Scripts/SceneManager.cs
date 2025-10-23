@@ -5,6 +5,8 @@ using UnityEngine;
 /// </summary>
 public class SceneManager : MonoBehaviour
 {
+    [SerializeField] Collider exitCollider;
+
     public GameSession session;
 
     private int totalCandies;
@@ -38,11 +40,14 @@ public class SceneManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Activates portal collider to end game
+    /// and open the portal
+    /// </summary>
     public void OnLeverActivated()
     {
-        // TODO: change material to door: from wood to Ire's shader
-        // TODO: suono + particellare intorno al portale??
-        exit.GetComponent<Collider>().enabled = true;
+        exitCollider.enabled = true;
+        exit.SetActive(false);
     }
 
     public void OnPlayerDeath()

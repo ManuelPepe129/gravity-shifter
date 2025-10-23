@@ -47,6 +47,7 @@ public class SceneManager : MonoBehaviour
 
     public void OnPlayerDeath()
     {
+        // TODO: reset gravity!
         session.OnPlayerDeath();
     }
 }

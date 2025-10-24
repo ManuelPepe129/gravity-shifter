@@ -13,7 +13,7 @@ public class EnemyCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            sceneManager.OnPlayerDeath();
+            sceneManager.OnPlayerDeath(true);
         }
     }
 }

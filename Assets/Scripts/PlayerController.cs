@@ -13,12 +13,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidbody;
     private InputSystem_Actions _playerControls;
     private Camera _camera;
+    SceneManager _sceneManager;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _playerControls = new InputSystem_Actions();
         _camera = Camera.main;
+        _sceneManager = FindAnyObjectByType<SceneManager>();
     }
 
     private void Start()
@@ -26,7 +28,13 @@ public class PlayerController : MonoBehaviour
         // Callbacks setup
         _playerControls.Player.Jump.performed += _ => Jump();
         _playerControls.Player.Gravity.performed += context => RotateGravity(context.ReadValue<float>());
+        _playerControls.Player.Reset.performed += _ => ResetGame();
         _isJumping = false;
+    }
+
+    private void ResetGame()
+    {
+        _sceneManager.OnPlayerDeath(false);
     }
 
     /// <summary>

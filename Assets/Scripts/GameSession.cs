@@ -13,12 +13,26 @@ public class GameSession
         Physics.gravity = Vector3.down;
     }
 
-    public void OnPlayerDeath()
+    /// <summary>
+    /// If reset -> reload current scene
+    /// If loose -> load LOOSE scene
+    /// </summary>
+    /// <param name="loadUI"></param>
+    public void OnPlayerDeath(bool loadUI)
     {
         // TODO: UI "You lost"
         Debug.Log("You lost!");
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LoseMenu");
+        if (loadUI)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("LoseMenu");
+        }
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(
+                UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        }
+        
         Physics.gravity = Vector3.down;
     }
 

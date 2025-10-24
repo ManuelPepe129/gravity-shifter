@@ -56,20 +56,23 @@ public class SceneManager : MonoBehaviour
         exit.SetActive(false);
     }
 
-    public void OnPlayerDeath()
+    /// <summary>
+    /// </summary>
+    /// <param name="isDeath">true in case of death, false in case of reset</param>
+    public void OnPlayerDeath(bool isDeath)
     {
-        StartCoroutine(TriggerSequenceDeath());     
+        StartCoroutine(TriggerSequenceDeath(isDeath));     
     }
 
-    private IEnumerator TriggerSequenceDeath()
+    private IEnumerator TriggerSequenceDeath(bool death)
     {
-        if (!gameOverAudio.isPlaying)
+        if (death && !gameOverAudio.isPlaying)
         {
             gameOverAudio.Play();
+            yield return new WaitForSeconds(2f);
         }
-        
-        yield return new WaitForSeconds(2f);
-        session.OnPlayerDeath();
+
+        session.OnPlayerDeath(death);
     }
 
     public void OnLevelCompleted()

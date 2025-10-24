@@ -12,6 +12,8 @@ public class SceneManager : MonoBehaviour
     [SerializeField] AudioSource gameOverAudio;
     [SerializeField] AudioSource winAudio;
     [SerializeField] AudioSource portalAudio;
+    [SerializeField] private GameObject winMenu;
+    [SerializeField] private GameObject loseMenu;
 
     public GameSession session;
     GameObject exit;   
@@ -27,6 +29,7 @@ public class SceneManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Physics.gravity = Vector3.down;
         totalCandies = GameObject.FindGameObjectsWithTag("Collectable").Length;
         exit = GameObject.FindGameObjectWithTag("Finish");
     }
@@ -69,7 +72,8 @@ public class SceneManager : MonoBehaviour
         }
         
         yield return new WaitForSeconds(2f);
-        session.OnPlayerDeath();
+        loseMenu.SetActive(true);
+        // session.OnPlayerDeath();
     }
 
     public void OnLevelCompleted()
@@ -85,6 +89,7 @@ public class SceneManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(4f);
-        session.OnLevelCompleted();
+        winMenu.SetActive(true);
+        // session.OnLevelCompleted();
     }
 }

@@ -1,4 +1,7 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// To manage the active scene
@@ -6,13 +9,15 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour
 {
     [SerializeField] Collider exitCollider;
+    [SerializeField] AudioSource gameOverAudio;
+    [SerializeField] AudioSource winAudio;
+    [SerializeField] AudioSource portalAudio;
 
     public GameSession session;
+    GameObject exit;   
 
     private int totalCandies;
     private int collectedCandies = 0;
-
-    GameObject exit;
 
     private void Awake()
     {
@@ -46,12 +51,40 @@ public class SceneManager : MonoBehaviour
     /// </summary>
     public void OnLeverActivated()
     {
+        portalAudio.Play();
         exitCollider.enabled = true;
         exit.SetActive(false);
     }
 
     public void OnPlayerDeath()
     {
+        StartCoroutine(TriggerSequenceDeath());     
+    }
+
+    private IEnumerator TriggerSequenceDeath()
+    {
+        if (!gameOverAudio.isPlaying)
+        {
+            gameOverAudio.Play();
+        }
+        
+        yield return new WaitForSeconds(2f);
         session.OnPlayerDeath();
+    }
+
+    public void OnLevelCompleted()
+    {
+        StartCoroutine(TriggerSequenceLevelCompleted());
+    }
+
+    private IEnumerator TriggerSequenceLevelCompleted()
+    {
+        if (!winAudio.isPlaying)
+        {
+            winAudio.Play();
+        }
+
+        yield return new WaitForSeconds(4f);
+        session.OnLevelCompleted();
     }
 }

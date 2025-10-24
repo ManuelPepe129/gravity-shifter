@@ -3,11 +3,14 @@ using UnityEngine;
 public class PumpkinParticle : MonoBehaviour
 {
     [SerializeField] ParticleSystem PumpkinParticles;
+
     Animator animator;
+    AudioSource audioSource;
 
     private void Awake()
     {
         animator = GetComponentInParent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -15,6 +18,7 @@ public class PumpkinParticle : MonoBehaviour
         if (animator != null)
         {
             animator.SetBool("Squash", true);
+            audioSource.Play();
         }
     }
 

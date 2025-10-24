@@ -54,4 +54,9 @@ public class SceneManager : MonoBehaviour
     {
         session.OnPlayerDeath();
     }
+
+    public void OnLevelCompleted()
+    {
+        session.OnLevelCompleted();
+    }
 }

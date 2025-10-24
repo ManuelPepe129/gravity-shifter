@@ -11,6 +11,6 @@ public class PortalCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("You won!");
+        sceneManager.OnLevelCompleted();
     }
 }

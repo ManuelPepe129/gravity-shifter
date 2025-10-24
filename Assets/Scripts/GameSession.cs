@@ -9,6 +9,8 @@ public class GameSession
     {
         // TODO: UI "You won"
         Debug.Log("Level completed!");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("WinMenu");
+        Physics.gravity = Vector3.down;
     }
 
     public void OnPlayerDeath()
@@ -16,8 +18,7 @@ public class GameSession
         // TODO: UI "You lost"
         Debug.Log("You lost!");
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene(
-            UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoseMenu");
         Physics.gravity = Vector3.down;
     }
 

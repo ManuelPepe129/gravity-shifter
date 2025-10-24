@@ -1,7 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// To manage the active scene
@@ -16,10 +13,12 @@ public class SceneManager : MonoBehaviour
     [SerializeField] private GameObject loseMenu;
 
     public GameSession session;
-    GameObject exit;   
+    GameObject exit;
 
     private int totalCandies;
     private int collectedCandies = 0;
+
+    private CandiesText[] _candiesTexts;
 
     private void Awake()
     {
@@ -29,17 +28,26 @@ public class SceneManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Physics.gravity = Vector3.down;
+        Time.timeScale = 1;
+        Physics.gravity = new Vector3(0, -9.81f, 0);
+        _candiesTexts = FindObjectsByType<CandiesText>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         totalCandies = GameObject.FindGameObjectsWithTag("Collectable").Length;
+        foreach (var candyText in _candiesTexts)
+        {
+            candyText.SetTotalCandies(totalCandies);
+        }
+        
         exit = GameObject.FindGameObjectWithTag("Finish");
     }
 
-    public void OnCandyCollected() 
+    public void OnCandyCollected()
     {
         collectedCandies++;
 
-        // TODO: update UI to visualize total
-        Debug.Log($"Candies collected: {collectedCandies}");
+        foreach (var candyText in _candiesTexts)
+        {
+            candyText.UpdateCandiesCollected(collectedCandies);
+        }
 
         if (collectedCandies == totalCandies)
         {
@@ -59,37 +67,30 @@ public class SceneManager : MonoBehaviour
         exit.SetActive(false);
     }
 
-    public void OnPlayerDeath()
+    /// <summary>
+    /// </summary>
+    /// <param name="isDeath">true in case of death, false in case of reset</param>
+    public void OnPlayerDeath(bool isDeath)
     {
-        StartCoroutine(TriggerSequenceDeath());     
-    }
-
-    private IEnumerator TriggerSequenceDeath()
-    {
-        if (!gameOverAudio.isPlaying)
+        if (isDeath && !gameOverAudio.isPlaying)
         {
             gameOverAudio.Play();
         }
-        
-        yield return new WaitForSeconds(2f);
+
         loseMenu.SetActive(true);
-        // session.OnPlayerDeath();
+        Time.timeScale = 0; // Freeze the game
+        // session.OnPlayerDeath(death);  
     }
 
     public void OnLevelCompleted()
-    {
-        StartCoroutine(TriggerSequenceLevelCompleted());
-    }
-
-    private IEnumerator TriggerSequenceLevelCompleted()
     {
         if (!winAudio.isPlaying)
         {
             winAudio.Play();
         }
 
-        yield return new WaitForSeconds(4f);
         winMenu.SetActive(true);
+        Time.timeScale = 0; // Freeze the game
         // session.OnLevelCompleted();
     }
 }

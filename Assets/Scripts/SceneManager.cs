@@ -9,6 +9,7 @@ public class SceneManager : MonoBehaviour
     [SerializeField] AudioSource gameOverAudio;
     [SerializeField] AudioSource winAudio;
     [SerializeField] AudioSource portalAudio;
+    [SerializeField] GameObject inGameUI;
     [SerializeField] private GameObject winMenu;
     [SerializeField] private GameObject loseMenu;
 
@@ -71,19 +72,27 @@ public class SceneManager : MonoBehaviour
     /// </summary>
     /// <param name="isDeath">true in case of death, false in case of reset</param>
     public void OnPlayerDeath(bool isDeath)
-    {
+    {        
         if (isDeath && !gameOverAudio.isPlaying)
         {
+            inGameUI.SetActive(false);
             gameOverAudio.Play();
+            loseMenu.SetActive(true);
+            Time.timeScale = 0; // Freeze the game
+        }
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(
+                UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         }
 
-        loseMenu.SetActive(true);
-        Time.timeScale = 0; // Freeze the game
         // session.OnPlayerDeath(death);  
     }
 
     public void OnLevelCompleted()
     {
+        inGameUI.SetActive(false); 
+
         if (!winAudio.isPlaying)
         {
             winAudio.Play();

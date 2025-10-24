@@ -33,7 +33,6 @@ public class GameSession
                 UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         }
         
-        Physics.gravity = Vector3.down;
     }
 
     // TODO: reset game at key pression

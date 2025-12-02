@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool facingRight = false;
     [SerializeField] private GameObject background;
 
+    [SerializeField] private Material transitionMaterial;
+    [SerializeField] private string propertyName = "_Progress";
+
     private bool _isJumping = false;
     private Vector3 _movement = Vector3.zero;
 
@@ -64,25 +67,37 @@ public class PlayerController : MonoBehaviour
         _playerControls.Disable();
 
         //yield return new WaitForSeconds(.2f);
-        float duration = 2.0f;
+        float duration = .50f;
         float alpha = 0.0f;
         Quaternion startPlayerRotation = _rigidbody.rotation;
         Quaternion startBackgroundRotation = background.transform.rotation;
         float startCameraDutch = _camera.Lens.Dutch;
         float endCameraDutch = startCameraDutch + angle;
+        while (alpha < 0.5f)
+        {
+            float transitionAlpha = Mathf.Lerp(1.0f, 0, alpha);
+            transitionMaterial.SetFloat(propertyName, transitionAlpha);
+            alpha += Time.deltaTime / duration / 2;
+            yield return null;
+        }
+        
+        _rigidbody.rotation = Quaternion.Euler(0, 0, angle) * startPlayerRotation;
+        _camera.Lens.Dutch = endCameraDutch;
+        transitionMaterial.SetFloat(propertyName, 1);
+        
+        yield return new WaitForSeconds(0.5f);
+        
         while (alpha < 1.0f)
         {
-            float currentAngle = Mathf.LerpAngle(0, angle, alpha);
-            _rigidbody.rotation = Quaternion.Euler(0, 0, currentAngle) * startPlayerRotation;
-            background.transform.rotation = Quaternion.Euler(0, 0, currentAngle) * startBackgroundRotation;
-            _camera.Lens.Dutch = Mathf.LerpAngle(startCameraDutch, endCameraDutch, alpha);
-            //_camera.transform.rotation = Quaternion.Euler(0, 0, currentAngle) * startCameraRotation;
-            alpha += Time.deltaTime / duration;
+            float transitionAlpha = Mathf.Lerp(0, 1, alpha);
+            transitionMaterial.SetFloat(propertyName, transitionAlpha);
+            alpha += Time.deltaTime / duration / 2;
             yield return null;
         }
 
         // Final rotations
-        _rigidbody.rotation = Quaternion.Euler(0, 0, angle) * startPlayerRotation;
+        
+        transitionMaterial.SetFloat(propertyName, 1);
         //_camera.transform.rotation = Quaternion.Euler(0, 0, angle) * startCameraRotation;
 
         _rigidbody.useGravity = true;
@@ -127,17 +142,17 @@ public class PlayerController : MonoBehaviour
     {
         //if (!_isJumping)
         //{
-            float movementAmount = _playerControls.Player.Move.ReadValue<float>();
+        float movementAmount = _playerControls.Player.Move.ReadValue<float>();
 
-            // Change player direction
-            if (!facingRight && movementAmount > 0 || facingRight && movementAmount < 0)
-            {
-                _rigidbody.rotation *= new Quaternion(0, movementAmount, 0, 0);
-                facingRight = !facingRight;
-            }
+        // Change player direction
+        if (!facingRight && movementAmount > 0 || facingRight && movementAmount < 0)
+        {
+            _rigidbody.rotation *= new Quaternion(0, movementAmount, 0, 0);
+            facingRight = !facingRight;
+        }
 
-            // Assign movement direction
-            _movement = transform.forward * Mathf.Abs(movementAmount);
+        // Assign movement direction
+        _movement = transform.forward * Mathf.Abs(movementAmount);
         //}
     }
 

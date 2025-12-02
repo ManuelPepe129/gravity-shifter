@@ -1,25 +1,28 @@
+using System;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2.0f;
     [SerializeField] private float jumpSpeed = 10.0f;
-    [SerializeField] private bool _facingRight = false;
+    [SerializeField] private bool facingRight = false;
+    [SerializeField] private GameObject background;
 
     private bool _isJumping = false;
     private Vector3 _movement = Vector3.zero;
 
     private Rigidbody _rigidbody;
     private InputSystem_Actions _playerControls;
-    private Camera _camera;
-    SceneManager _sceneManager;
+    private CinemachineCamera _camera;
+    private SceneManager _sceneManager;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _playerControls = new InputSystem_Actions();
-        _camera = Camera.main;
+        _camera = FindFirstObjectByType<CinemachineCamera>();
         _sceneManager = FindAnyObjectByType<SceneManager>();
     }
 
@@ -60,24 +63,19 @@ public class PlayerController : MonoBehaviour
         _rigidbody.linearVelocity = Vector3.zero;
         _playerControls.Disable();
 
-        if (angle > 0)
-        {
-            _camera.GetComponent<Animator>().Play("Camera Gravity Shift");
-        }
-        else
-        {
-            _camera.GetComponent<Animator>().Play($"Camera Gravity Shift_Reversed");
-        }
-
         //yield return new WaitForSeconds(.2f);
         float duration = 2.0f;
         float alpha = 0.0f;
         Quaternion startPlayerRotation = _rigidbody.rotation;
-        //Quaternion startCameraRotation = _camera.transform.rotation;
+        Quaternion startBackgroundRotation = background.transform.rotation;
+        float startCameraDutch = _camera.Lens.Dutch;
+        float endCameraDutch = startCameraDutch + angle;
         while (alpha < 1.0f)
         {
             float currentAngle = Mathf.LerpAngle(0, angle, alpha);
             _rigidbody.rotation = Quaternion.Euler(0, 0, currentAngle) * startPlayerRotation;
+            background.transform.rotation = Quaternion.Euler(0, 0, currentAngle) * startBackgroundRotation;
+            _camera.Lens.Dutch = Mathf.LerpAngle(startCameraDutch, endCameraDutch, alpha);
             //_camera.transform.rotation = Quaternion.Euler(0, 0, currentAngle) * startCameraRotation;
             alpha += Time.deltaTime / duration;
             yield return null;
@@ -132,10 +130,10 @@ public class PlayerController : MonoBehaviour
             float movementAmount = _playerControls.Player.Move.ReadValue<float>();
 
             // Change player direction
-            if (!_facingRight && movementAmount > 0 || _facingRight && movementAmount < 0)
+            if (!facingRight && movementAmount > 0 || facingRight && movementAmount < 0)
             {
                 _rigidbody.rotation *= new Quaternion(0, movementAmount, 0, 0);
-                _facingRight = !_facingRight;
+                facingRight = !facingRight;
             }
 
             // Assign movement direction
